@@ -1,0 +1,36 @@
+<div class="pipes">
+  <h1>Pipes</h1>
+  <p>{{myvalue | uppercase}}</p>
+  <p>{{myvalue | slice:5}} --- {{myvalue | slice:5:10 | uppercase}}</p>
+  <div><button (click)="toggleFrmat()">Toggle Format</button> {{myDate | date:format}} </div>
+
+  <p>{{myDate | date:"MM/dd/yyyy"}}</p>
+  <hr>
+  <h2>Custom Pipe</h2>
+  <input type="text" #input (keyup)="0">
+  <p>{{input.value | double}}</p>
+  <p>{{input.value | double:5}}</p>
+  <hr>
+  <input type="text" #input>
+  <button (click)="values.push(input.value)" class="btn btn-primary">Add Item</button>
+  <h2>Without Pipe Filter</h2>
+  <ul>
+    <li *ngFor="let item of values">{{item}}</li>
+  </ul>
+  <h2>With Pipe Filter</h2>
+  <ul>
+    <li *ngFor="let item of values | filter:'ea'">{{item}}</li>
+  </ul>
+  <hr>
+  <h2>Async Hero Message and AsyncPipe</h2>
+  <p>Message: {{ message$ | async }}</p>
+  <button (click)="resend()">Resend</button>`
+  <hr>
+  <div>
+    <p>Without JSON pipe:</p>
+    <pre>{{object}}</pre>
+    <p>With JSON pipe:</p>
+    <pre>{{object | json}}</pre>
+  </div>
+
+</div>
